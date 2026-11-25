@@ -1,9 +1,14 @@
-
 # ☁️ CloudVault — Cloud-Based Document Manager
 
 CloudVault is a secure cloud-based document management application that allows users to upload, store, search, download, and delete their documents using Amazon S3.
 
 Built with Python Flask and AWS, CloudVault provides user authentication and individual document storage spaces.
+
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://cloudvault-document-manager.onrender.com)
+
+**Live Website:** https://cloudvault-document-manager.onrender.com
+
 
 ## ✨ Features
 
