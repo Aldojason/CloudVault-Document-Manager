@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>CloudVault | Document Manager</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <h2 class="logo">☁ CloudVault</h2>
+
+            <nav>
+                <a href="#" class="active">📁 All Documents</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>Secure Cloud Storage</p>
+                <small>Powered by Amazon S3</small>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>My Documents</h1>
+                    <p>Manage your files securely in the cloud.</p>
+                </div>
+
+                <div class="user-profile">
+                    <span>AJ</span>
+                    <p>{{ username }}</p>
+
+                    <form action="{{ url_for('logout') }}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <button type="submit" class="logout-btn">
+                             Logout
+                        </button>
+                    </form>
+                </div>
+            </header>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <p>Total Documents</p>
+                    <h2 id="totalFiles">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Storage Used</p>
+                    <h2 id="totalStorage">0 KB</h2>
+                </div>
+            </section>
+
+            <section class="toolbar">
+                <input type="text" id="searchInput" placeholder="Search documents...">
+
+                <label for="fileInput" class="upload-button">
+                    + Upload Document
+                </label>
+
+                <input type="file" id="fileInput" hidden>
+            </section>
+
+            <section class="document-section">
+
+                <h2>All Documents</h2>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Document Name</th>
+                                <th>Size</th>
+                                <th>Last Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="fileList">
+                            <tr>
+                                <td colspan="4">Loading documents...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
